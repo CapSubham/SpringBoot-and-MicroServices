@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="car-type-1" class="com.demo.spring.core.beans.Car">
+		<property name="model" value="Audi R9">
+		</property>
+		<property name="cost" value="3800000">
+		</property>
+	</bean>
+	
+		<bean id="car-type-2" class="com.demo.spring.core.beans.Car">
+		<property name="model" value="BMW">
+		</property>
+		<property name="cost" value="4800000">
+		</property>
+	</bean>
+
+	<bean id="user1" class="com.demo.spring.core.beans.User">
+		<property name="firstName" value="Subham"></property>
+		<property name="latName" value="Dubey"></property>
+		<property name="car" ref="car-type-1" />
+		<!-- Dependency Injection through setter method -->
+	</bean>
+
+	<bean id="user2" class="com.demo.spring.core.beans.User"
+		p:firstName="Praveen" 
+		p:latName="Tambe" 
+		p:car-ref="car-type-2" />
+
+</beans>

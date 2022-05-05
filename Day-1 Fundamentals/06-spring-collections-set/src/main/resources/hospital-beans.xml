@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<bean id="Apollo" class="com.demo.spring.core.beans.Hospital">
+		<property name="hospitalName" value="Apollo Hospitals" />
+		<property name="hospitalDepartments">
+			<set>
+				<value>Front Office</value>
+				<value>Out-Patient</value>
+				<value>In-Patient</value>
+				<value>Front Office</value>
+				<value>Billing</value>
+			</set>
+		</property>
+	</bean>
+
+	<util:set id="depts" set-class="java.util.HashSet">
+		<value>Front Office</value>
+		<value>Out-Patient</value>
+		<value>In-Patient</value>
+		<value>Billing</value>
+		<value>In-Patient</value>
+	</util:set>
+
+	<bean id="departments"
+		class="com.demo.spring.core.beans.Department">
+		<property name="departmentNames">
+			<ref bean="depts" />
+		</property>
+
+	</bean>
+</beans>

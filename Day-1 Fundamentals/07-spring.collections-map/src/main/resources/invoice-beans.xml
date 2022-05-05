@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="INV_1" class="com.demo.spring.core.beans.Invoice"
+		p:invoiceNo="12001" p:customerName="Subham Dubey">
+
+		<property name="items">
+
+			<!-- 1st way to provide data -->
+			<map>
+				<entry key="Corsair Ram 8GB 3200Mhz" value="4"></entry>
+				<entry key="Corsair ML 140mm Fans  " value="6"></entry>
+
+				<!-- 2nd way to provide data -->
+				<entry>
+					<key>
+						<value>Corsair K-95 Keyboard</value>
+					</key>
+					<value>2</value>
+				</entry>
+
+				<!-- 3rd way to provide data -->
+				<entry key="CPU AMD Ryzen 9 5950x ">
+					<value>1</value>
+				</entry>
+
+			</map>
+		</property>
+	</bean>
+</beans>

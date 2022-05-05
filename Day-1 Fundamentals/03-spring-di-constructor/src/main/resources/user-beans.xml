@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="car-type-1" class="com.demo.spring.core.beans.Car">
+		<property name="model" value="Audi R9" />
+		<property name="cost" value="3800000" />
+	</bean>
+
+	<bean id="user1" class="com.demo.spring.core.beans.User">
+		<constructor-arg value="Subham"></constructor-arg>  <!-- string type -->
+		<constructor-arg value="Dubey"></constructor-arg>	<!-- string type -->
+		<constructor-arg ref="car-type-1"></constructor-arg> <!-- Obj. type which we are already having -->
+		<!-- Dependency Injection through CONSTRUCTOR -->
+	</bean>
+</beans>

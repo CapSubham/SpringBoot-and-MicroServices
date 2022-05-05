@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- In bean configuration file value can be given as 1. an attribute 2. 
+		an element 3. using namespaces -->
+
+	<!-- Value as an ATTRIBUTE -->
+	<bean id="user1" class="com.demo.spring.core.beans.User">
+		<property name="firstName" value="Subham" />   <!-- setter injection -->
+		<property name="lastName" value="Dubey" />	   <!-- setter injection -->
+	</bean>
+
+
+	<!-- bean with CONSTRUCTOR -->
+	<bean id="user2" class="com.demo.spring.core.beans.User">
+		<constructor-arg value="Praveen"></constructor-arg>
+		<constructor-arg value="Tambe"></constructor-arg>
+	</bean>
+</beans>

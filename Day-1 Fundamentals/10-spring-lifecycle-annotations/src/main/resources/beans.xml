@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:annotation-config></context:annotation-config>
+
+	<!-- In order to enable annotation we need to include "context" xmlns:context="http://www.springframework.org/schema/context" 
+		and <context:annotation-config></context:annotation-config> -->
+
+	<!-- Value as an ATTRIBUTE -->
+	<bean id="user1" class="com.demo.spring.core.beans.User">
+		<property name="firstName" value="Subham" />   <!-- setter injection -->
+		<property name="lastName" value="Dubey" />	   <!-- setter injection -->
+	</bean>
+
+
+	<!-- bean with CONSTRUCTOR -->
+	<bean id="user2" class="com.demo.spring.core.beans.User">
+		<constructor-arg value="Praveen"></constructor-arg>
+		<constructor-arg value="Tambe"></constructor-arg>
+	</bean>
+</beans>
+

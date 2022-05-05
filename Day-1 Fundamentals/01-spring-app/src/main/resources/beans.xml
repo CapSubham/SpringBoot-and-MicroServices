@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- In bean configuration file value can be given as 
+			1. an attribute 
+			2. an element 
+			3. using namespaces -->
+
+	<!-- Value as an ATTRIBUTE -->
+	<bean id="user1" class="com.demo.spring.core.beans.User"
+		lazy-init="true" scope="prototype">
+
+		<!-- When we use lazy-init="true" the object will not be created with Spring-Initialization 
+			instead the obj. is created when it is called/required -->
+
+		<!-- SCOPE >> singleton(default) -> for each invocation only 1 object is created 
+		SCOPE >> prototype -> for each invocation seperate object is created -->
+
+		<property name="firstName" value="Subham" />   <!-- setter injection -->
+		<property name="lastName" value="Dubey" />	   <!-- setter injection -->
+	</bean>
+
+
+	<!-- Value as an ELEMENT -->
+	<bean id="user2" class="com.demo.spring.core.beans.User"
+		lazy-init="true">
+		<property name="firstName">
+			<value>Sachin</value>
+		</property>
+		<property name="lastName">
+			<value>Tendulkar</value>
+		</property>
+	</bean>
+
+	 <!-- Value with NAMESPACES  -->
+	<!-- For this case need to include xmlns:p="http://www.springframework.org/schema/p"  -->
+	<bean id="user3" class="com.demo.spring.core.beans.User"
+		p:firstName="Sanjay" p:lastName="Kumar" />
+		
+
+	<!-- bean with CONSTRUCTOR -->
+	<bean id="user4" class="com.demo.spring.core.beans.User">
+		<constructor-arg value="Praveen" index="1"
+			name="lastName"></constructor-arg>  <!-- index OR name is used to change order -->
+		<constructor-arg value="Tambe" index="0"
+			name="firstName"></constructor-arg>
+	</bean>
+</beans>
